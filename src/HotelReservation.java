@@ -6,9 +6,6 @@ public class HotelReservation extends Reservation {
 
     public HotelReservation(String name, Hotel hotel, String type, int numberOfNights, int pricePerNight) {
         super(name);
-        try {
-
-        }
         this.hotel = hotel;
         this.type = type;
         this.numberOfNights = numberOfNights;
