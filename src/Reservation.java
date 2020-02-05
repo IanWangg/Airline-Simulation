@@ -1,5 +1,5 @@
 public abstract class Reservation {
-    String clientName;
+    private String clientName;
 
     public Reservation(String name) {
         this.clientName = name;
