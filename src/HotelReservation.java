@@ -4,6 +4,7 @@ public class HotelReservation extends Reservation {
     private int numberOfNights;
     private int pricePerNight; //in cents
 
+    //need to be modified
     public HotelReservation(String name, Hotel hotel, String type, int numberOfNights, int pricePerNight) {
         super(name);
         this.hotel = hotel;
