@@ -5,16 +5,12 @@ public class HotelReservation extends Reservation {
     private int pricePerNight; //in cents
 
     //need to be modified
-    public HotelReservation(String nameOfReservation, Hotel hotel, String type, int numberOfNights, int pricePerNight) {
+    public HotelReservation(String nameOfReservation, Hotel hotel, String type, int numberOfNights) {
         super(nameOfReservation);
-        if (type.equals("double") || type.equals("queen") || type.equals("king")) {
-            this.hotel = hotel;
-            this.type = type;
-            this.numberOfNights = numberOfNights;
-            this.pricePerNight = pricePerNight;
-        } else {
-            throw new IllegalArgumentException();
-        }
+        this.pricePerNight = hotel.reserveRoom(type);
+        this.hotel = hotel;
+        this.type = type;
+        this.numberOfNights = numberOfNights;
     }
 
     public int getNumberOfNights() {

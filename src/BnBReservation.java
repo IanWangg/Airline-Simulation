@@ -1,7 +1,7 @@
 public class BnBReservation extends HotelReservation {
 
-    public BnBReservation(String nameOfReservation, Hotel hotel, String type, int numberOfNights, int pricePerNight) {
-        super(nameOfReservation, hotel, type, numberOfNights, pricePerNight);
+    public BnBReservation(String nameOfReservation, Hotel hotel, String type, int numberOfNights) {
+        super(nameOfReservation, hotel, type, numberOfNights);
     }
 
     @Override
