@@ -23,10 +23,18 @@ public class FlightReservation extends Reservation {
 
     @Override
     public boolean equals(Object object) {
-        if (object.getClass().equals(this.getClass())) {
-            return true;
+        boolean ans = true;
+        if (!(object instanceof FlightReservation)) {
+            return false;
         }
-
-        return false;
+        //down-casting
+        FlightReservation flightReservation = (FlightReservation) object;
+        if (!(flightReservation.reservationName().equals(this.reservationName()))) {
+            return false;
+        }
+        if (!(flightReservation.departure.equals(this.departure))){
+            return false;
+        }
+        return flightReservation.arrival.equals(this.arrival);
     }
 }
