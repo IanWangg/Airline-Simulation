@@ -101,7 +101,7 @@ public class SyntaxTester {
       
    // check if all classes exist
    String []classNames = {"Airport", "Basket", "Customer", "Hotel", "Room",
-     "Reservation", "FlightReservation", "HotelReservation", 
+     "Reservation", "FlightReservation", "HotelReservation",
      "BnBReservation" };
    
    for (String className : classNames)

@@ -26,9 +26,7 @@ public class Airport {
         int x2 = a2.getX();
         int y1 = a1.getY();
         int y2 = a2.getY();
-        double horizontal = Math.pow((x1 - x2), 2);
-        double vertival = Math.pow((y1 - y2), 2);
-        int distance = (int)Math.ceil(Math.pow((horizontal + vertival), 1/2));
+        int distance = (int)Math.ceil(Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)));
         return distance;
     }
 }

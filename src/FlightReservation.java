@@ -15,9 +15,8 @@ public class FlightReservation extends Reservation {
     @Override
     public int getCost() {
         int airportsFees = this.arrival.getFees() + this.departure.getFees();
-        double fuelsCost = Airport.getDistance(this.departure, this.arrival) / 167.52 * 1.24 * 100;
+        double fuelsCost = Math.ceil((Airport.getDistance(this.departure, this.arrival) / 167.52) * 1.24 * 100);
         double extraCost = 53.75 * 100;
-
         return (int)Math.ceil(airportsFees + fuelsCost + extraCost);
     }
 

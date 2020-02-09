@@ -2,7 +2,7 @@ public class Basket {
     private Reservation[] reservations;
 
     public Basket() {
-        this.reservations = new Reservation[10];
+        this.reservations = new Reservation[0];
     }
 
     public Reservation[] getProducts() {
@@ -11,15 +11,9 @@ public class Basket {
     }
 
     public void add(Reservation reservation) {
-        for (int i  = 0; i < this.reservations.length; i++) {
-            if (this.reservations[i] == null) {
-                this.reservations[i] = reservation;
-                return;
-            }
-        }
         //create a longer reservations list
+        Reservation[] newReservations = new Reservation[this.reservations.length + 1];
         //firstly, copy the original list
-        Reservation[] newReservations = new Reservation[this.reservations.length * 2];
         for (int i  = 0; i < this.reservations.length; i++) {
             newReservations[i] = this.reservations[i];
         }
@@ -30,17 +24,21 @@ public class Basket {
     }
 
     public boolean remove(Reservation reservation) {
-        for (int i  = 0; i < this.reservations.length; i++) {
+        Reservation[] newReservations = new Reservation[this.reservations.length - 1];
+        System.out.println("current length is " + newReservations.length);
+        boolean c = false;
+        for (int i  = 0; i < newReservations.length; i++) {
             if (this.reservations[i].equals(reservation)) {
-                this.reservations[i] = null;
-                for (int j = i; j < this.reservations.length - 1; j++) {
-                    this.reservations[j] = this.reservations[j + 1];
-                }
-                return true;
+                c = true;
+            }
+            if (!c) {
+                newReservations[i] = this.reservations[i];
+            } else {
+                newReservations[i] = this.reservations[i + 1];
             }
         }
-
-        return false;
+        this.reservations = newReservations;
+        return c;
     }
 
     public void clear() {

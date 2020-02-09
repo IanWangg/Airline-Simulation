@@ -56,6 +56,8 @@ public class MiniTester
    Field fRooms = null;
 
    for (Field f : fields) {
+    System.out.println(f.getType().getName());
+
     if (f.getType().getName().equals("[L" + packageName + "Room;")) {
      fRooms = f;
     }
@@ -217,7 +219,8 @@ public class MiniTester
 
    //different coordinates
    int distance2 = Airport.getDistance(a1, a3);
-
+   System.out.println(distance2);
+   System.out.println("the correct answer should be" + 6);
    if (distance2 == 6) grade += 4;
    else {
     comment = comment + "Error: getDistance doesn't return the right value when Airports have different coordinates.\n";
@@ -286,6 +289,9 @@ public class MiniTester
    Airport a2 = new Airport(7, 80000, 30000);
    FlightReservation f1 = new FlightReservation("myFlight", a1, a2);
    int cost = f1.getCost(); // should be 92387 by hard coding the calculation
+
+   System.out.println("实际cost" + cost);
+
    if (cost == 92387) grade += 4;
    else {
     comment = comment + "Error: getCost in FlightReservation isn't calculated correctly.\n";
@@ -461,6 +467,8 @@ public class MiniTester
 
    boolean res = b1.remove(r2);
    Reservation[] myProducts = b1.getProducts();
+   System.out.println("实际长度" + myProducts.length);
+   System.out.println("结果" + res);
    if(res == true && myProducts.length == 2 && myProducts[0].equals(r1) && myProducts[1].equals(r3)) {
     grade += 6;
    } else {
